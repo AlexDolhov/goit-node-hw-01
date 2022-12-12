@@ -1,12 +1,16 @@
-contacts.js;
-/*
- * Раскомментируй и запиши значение
- * const contactsPath = ;
- */
+const fs = require('fs').promises;
+const path = require('node:path');
 
-// TODO: задокументировать каждую функцию
-function listContacts() {
-  // ...твой код
+const contactsPath = path.basename('/db/contacts.json');
+
+async function listContacts() {
+  try {
+    const contacts = await fs.readFile(contactsPath, 'utf-8');
+    console.table(JSON.parce(contacts));
+    return JSON.parce(contacts);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function getContactById(contactId) {
