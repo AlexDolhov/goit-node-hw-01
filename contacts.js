@@ -57,7 +57,8 @@ async function addContact(name, email, phone) {
       },
     ];
     await fs.writeFile(contactsPath, JSON.stringify(addContact), 'utf-8');
-    console.table(parcedContacts);
+    // console.table(parcedContacts);
+    listContacts();
   } catch (error) {
     console.log(error);
   }
